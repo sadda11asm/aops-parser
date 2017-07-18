@@ -38,7 +38,145 @@ app.all('/',(req,resp) => {
     }
     var idofText
     var counter = 0
-    if (sections && type && year) {
+    function vyvestiBezTypov() {
+        for (var j=0; j < types.length; j++) {
+                var olympiad = scales[j]
+                var a = types[j]
+                request.post({
+                    url: 'https://artofproblemsolving.com/m/community/ajax.php',
+                    form: {
+                        sought_category_ids:types[j],
+                        parent_category_id:13,
+                        seek_items:0,
+                        log_visit:1,
+                        a:'fetch_items_categories',
+                        aops_logged_in:false,
+                        aops_user_id:1
+                    }
+                },
+                (err,res,body) => {
+                    //console.log(res)
+                    counter++
+                    var id = JSON.parse(body).response.categories.category_id
+                    for (var i = 0; i<types.length;i++) {
+                        if (types[i] == id) {
+                            var nomer = i
+                            break;
+                        }
+                    }
+
+                    JSON.parse(body).response.categories.items.forEach(x => {
+                        var typeOfOlymp = {
+                            'id':x.item_id,
+                            'name':x.item_text,
+                            'type':scales[nomer],
+                            'parentId':types[nomer]
+                        }
+                        object.olymp.push(typeOfOlymp)
+                    })
+                    console.log(counter)
+                    if (counter == types.length) {
+                        // console.log(object)
+                        object.olymp.forEach(x => {
+                            // var podobject = {'parentId':a,
+                            //                 'name':x.name,
+                            //                   'id':x.id}
+                            if (x.type == sections) {
+                                allTypes.olymp.push(x)
+                                category.push(x.id)
+                            }
+
+                        })
+                    console.log(allTypes)
+                    resp.json(allTypes)
+            }
+    })
+    }
+    }
+    function vyvestiBezTexta() {
+        for (var j=0; j < types.length; j++) {
+                var olympiad = scales[j]
+                var a = types[j]
+                request.post({
+                    url: 'https://artofproblemsolving.com/m/community/ajax.php',
+                    form: {
+                        sought_category_ids:types[j],
+                        parent_category_id:13,
+                        seek_items:0,
+                        log_visit:1,
+                        a:'fetch_items_categories',
+                        aops_logged_in:false,
+                        aops_user_id:1
+                    }
+                },
+                (err,res,body) => {
+                    //console.log(res)
+                    counter++
+                    var id = JSON.parse(body).response.categories.category_id
+                    for (var i = 0; i<types.length;i++) {
+                        if (types[i] == id) {
+                            var nomer = i
+                            break;
+                        }
+                    }
+
+                    JSON.parse(body).response.categories.items.forEach(x => {
+                        var typeOfOlymp = {
+                            'id':x.item_id,
+                            'name':x.item_text,
+                            'type':scales[nomer],
+                            'parentId':types[nomer]
+                        }
+                        object.olymp.push(typeOfOlymp)
+                    })
+                    console.log(counter)
+                    if (counter == types.length) {
+                        // console.log(object)
+                            object.olymp.forEach(x => {
+                                // var podobject = {'parentId':a,
+                                //                 'name':x.name,
+                                //                   'id':x.id}
+                                if (x.type == sections) {
+                                    allTypes.olymp.push(x)
+                                    category.push(x.id)
+                                }
+
+                            })
+                            console.log(allTypes)
+                        // resp.json(allTypes)
+                            var index=0
+                            allTypes.olymp.forEach( x => {
+                                if (index == type) {
+                                    idOlympiad = x.id
+                                    idParent = x.parentId
+                                } else { idOlympiad == 3222}
+                                index++
+                            })
+                                request.post({
+                                    url: 'https://artofproblemsolving.com/m/community/ajax.php',
+                                    form: {
+                                        category_id: idOlympiad,
+                                        a:'fetch_category_data',
+                                        aops_logged_in:false,
+                                        aops_user_id:1
+                                        }
+                                    },
+                                    (err,res,body) => {
+                                        // console.log(body)
+                                        // console.log(JSON.parse(body))
+                                        JSON.parse(body).response.category.items.forEach(x => {
+                                            var year = {'id': x.item_id,
+                                                        'name': x.item_text}
+                                                        allTypes.years.push(year)
+                                        })
+                                    })
+                                    console.log(allTypes)
+                                    resp.json(allTypes)
+                        }
+                })
+            }
+        }
+    function vyvestiVse() {
         for (var j=0; j < types.length; j++) {
                 var olympiad = scales[j]
                 var a = types[j]
@@ -89,13 +227,14 @@ app.all('/',(req,resp) => {
                         })
                     console.log(allTypes)
                     // resp.json(allTypes)
-
-                    allTypes.olymp.forEach( x => {
-                        if (x.name == type) {
+                    var index = 0
+                    allTypes.olymp.forEach(x => {
+                        if (index == type) {
                             idOlympiad = x.id
                             idParent = x.parentId
                         }
                         else { idOlympiad == 3222}
+                        index++
                     })
                             request.post({
                                 url: 'https://artofproblemsolving.com/m/community/ajax.php',
@@ -114,10 +253,12 @@ app.all('/',(req,resp) => {
                                                     'name': x.item_text}
                                                     allTypes.years.push(year)
                                     })
+                                    var indexx = 0
                                     allTypes.years.forEach(x => {
-                                        if (x.name == year) {
+                                        if (indexx == year) {
                                             idofText = x.id
                                         }
+                                        indexx++
                                     })
                                     request.post({
                                         url: 'https://artofproblemsolving.com/m/community/ajax.php',
@@ -137,8 +278,20 @@ app.all('/',(req,resp) => {
                                     (err,res,body) => {
                                         var items = JSON.parse(body).response.items
                                         allTypes.text.push(items[0].post_data.category_name)
+                                        var nomera =[]
+                                        var nechislo = 101
+                                        var kolichestvo = 0
+                                        for (var t=0;t<100;t++) {
+                                            nomera.push(t)
+                                        }
                                         for (var i=0; i<items.length; i++){
-                                                if (i!=3) {
+                                            var chislo = 0
+                                            nomera.forEach(x => {
+                                                if (x==items[i].item_text) {
+                                                    chislo = 1
+                                                }
+                                            })
+                                            if (chislo == 1) {
                                                     var text = ' '
                                                     text += items[i].item_text + '.'
                                                     text += '  '
@@ -146,14 +299,21 @@ app.all('/',(req,resp) => {
                                                     text += os.EOL
                                                     //text += items[i].post_data.category_name.toString()
                                                     text += ''
-                                                    if (i>3) {
-                                                        var zadachi = {'uslovie':text,
-                                                                        'nomer':i}
-                                                    } else {
+                                                    if (nechislo > i) {
                                                         zadachi = {'uslovie':text,
-                                                                    'nomer':i+1}
+                                                                        'nomer':items[i].item_text,
+                                                                        'day':1}
                                                     }
+                                                    else {
+                                                        zadachi = {'uslovie':text,
+                                                                        'nomer':items[i].item_text,
+                                                                        'day':2}
+                                                    }
+
                                                     allTypes.text.push(zadachi)
+                                            }
+                                            else {
+                                                nechislo = i
                                             }
                                         }
                                         resp.json(allTypes)
@@ -164,13 +324,25 @@ app.all('/',(req,resp) => {
                         }
                 })
         }
-
-console.log('de')
-}
-})
+    }
+    if (sections && type && year) {
+        vyvestiVse()
+    }  else {
+        if (sections && type) {
+            vyvestiBezTexta()
+        } else {
+             if (sections) {
+                vyvestiBezTypov()
+             }
+             else {
+                resp.send("Error")
+             }
+        }
+    }
+    })
 }
 var requestLoop = setInterval(function(){aops()},6000)
- console.log('server is started')
+console.log('server is started')
 
 
 
