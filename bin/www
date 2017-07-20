@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../probnik3');
 var debug = require('debug')('aops:server');
 var http = require('http');
 

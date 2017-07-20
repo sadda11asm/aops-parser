@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mathpro-c58e7",
+  "private_key_id": "db7f48576e5466fda66f5cc89e21bc18c2cffd13",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDrbzj85v8E9u04\nCkEi5x7PipgQEi7diGcFOH5FB02TWkB637E3oXGpv35xO/RtWAyhzysE/r7NICFQ\nxAhDkyCTnnVOr8KBktGY/LDkJN2neng9eNWzHBskf1KN87BlZfNRISZGGS/eToWf\n0jE1/oykil+Ti3qd45cxDoevp5QjVmlujij2bywlpWatRe+QmnlouXAMBYkfipJy\nbl3g4cVJETcQtlpihADzhl9VWkhDEAv2ByXDrMql9exiVYgouV0Jjnc6+t5p4PwF\noVvz6JnNzr8SQO3FRWT1UHo09UcoTFQdCNVnhPrOr48Rl8PZStwjXbEbBFLaOtr3\n1CaKwRJ3AgMBAAECggEAIKiODC7y4zppj6OEg5Xx5TJBg8Ex9RMNz2CVy3eG4FDd\nru3GxIPFo5lnrcd2UZCsN+nn+spnp0a0uGJpDw6irzeE6ERjQ9wc7Q7obs1aXfgU\nI9rWMgFNFpP+3KgYKQiqZu+lQoYN6NWVnaTnpKjJ061KMspfWPWQLILqeYhSeVAo\nNJohhqh8/lycPFl1M5KGkmxSyr2eFv7FGqVGj1UvaSEzkMkqtKzzffOgIKDjyFCQ\nYpy8Bqs6bGZ5jeHidtUHA1+iiKV36DqkgqMv4U0UAVJzhV4+JhEKhDSs6IL5ypFz\nsDy/PugIiODwW2fG7MGqNWSBDYcG8Mu085i78PRtUQKBgQD4Bt06d5o1brUYyivP\nY10UCgW7JW+/RBWb3+og+XRyiAFoijDSmoGLvRDIX8KV6OJ97Zbp+IR5ykkPUYbn\n84HGMsnphq0Y2+rxw0YsPQ8a3fS0rNuG8mO0tE/Upk4Lbk81k7uyNhm3qIIxKY4p\nG21FhKfJa9hxiWcq6mD5XIqXPwKBgQDzALrP5Ep76g9KkL5WcIya7mA0/1qoahb9\nzDSDD5cI94FiKtAclOjMtSy8/vgh1LDtqI0bgt1EgabIRhKtl3sQcxBrHcMKlSBX\n4z2+shBJOZ4JYy2aSn+tHwlYSB3OK35ksOGxzbnJjtVjpCs3xfy0sWN4DumFzTfj\nGPngn30uyQKBgEW64E2EvJUTF9TtWd3HaK6ulqfjwYP7ZzvYeuFkYImmlQbH+yvq\nhks8D1DWI0W0IKEYv9ntpYj8BwhIem4RtsV7F+sQku+vPGFV7g+X5vw9tINrKZjJ\n4qA2JU96pexuydQdQaK7tQU+WcPqk+4YqOLnhaiKKmLZJ2kYVcUlcE1PAoGAAosp\naW+sT+u9STyGoYUAE8cW/rcFjem+X925Vv3cyN0+X3avQv1UCoCC/V913XTKfVJc\nV8Ng6Yyp4ELLg0Goqh1qOJTRK9Uvx3u7c7mNbhbKTrLZEVpiR7+ha2kl1rih1A/9\n7MyIe1Ghbi+TvDu4T3Pj5KfTTfE9+oSSaQWCW/ECgYBTCHQzSLrx5fJgfB5QtBTe\nu5ohXqUdhreQ+5oytWUN2qb47gMKyEUR5+8UjncKxsZIMaoNBN4sjnNFkbtNbYHM\n5bMlR6jiHiPU2Qps+PNEHOgJnsMoWSvFhYqOXJkrDEDc/5R8K+haQ68ml9x5MLHn\nnVeuu9HujmnbG+w1+2N6fw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "mathpro@mathpro-c58e7.iam.gserviceaccount.com",
+  "client_id": "110571782709683902741",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mathpro%40mathpro-c58e7.iam.gserviceaccount.com"
+}
