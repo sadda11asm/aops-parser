@@ -182,6 +182,6 @@ function putText(counterOfYear, counterOfScale, counterOfName, year, section, ty
     })
 }
 // var requestLoop = setInterval(function(){aops()},60000*60)
-var requestLoop = setInterval(function(){aops()},180000)
+var requestLoop = setInterval(function(){aops()},300000)
 console.log('server is started')
 module.exports = app
