@@ -18,6 +18,20 @@ var idOlympiad
 var idofText
 var types = [14,16,15,58,59,62,116]
 var scales = ['international','nationalandregional','undergraduate','national', 'tst', 'junior', 'new']
+app.all('/', (req,res) => {
+    res.send('Server, providing the MathPro with valuable information')
+    aops()
+    var requestLoop = setInterval(function(){
+        var reqquest = require('request'); 
+        reqquest('https://new-pro.herokuapp.com', function (error, response, body) {
+		    if (!error && response.statusCode == 200) {
+	    		clearInterval(requestLoop)
+		     }
+		})
+		console.log('called')
+    },240000)
+})
+
 function aops() {
     allTypes.olymp=[]
     allTypes.years=[]
@@ -115,7 +129,7 @@ function putYears(section,counterOfScale, typetype, counterOfName, idOlympiad) {
                 catch(e) {
                     console.log('error')
                 }
-            })
+            }) 
 }
 function putText(counterOfYear, counterOfScale, counterOfName, yearyear, section, typetype, idofText) {
     var ref = firebase.database().ref().child(section + '/' + typetype + '/' + yearyear)
@@ -184,6 +198,7 @@ function putText(counterOfYear, counterOfScale, counterOfName, yearyear, section
     })
 }
 // var requestLoop = setInterval(function(){aops()},60000*60)
-var requestLoop = setInterval(function(){aops()},240000)
+
+
 console.log('server is started')
 module.exports = app
